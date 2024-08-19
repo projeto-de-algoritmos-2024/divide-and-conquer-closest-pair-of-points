@@ -1,6 +1,6 @@
 class Graph:
     def __init__(self, points):
-        self.points = sorted(points, key=lambda p: p[0])  # Ordena os pontos pelo eixo x
+        self.points = sorted(points, key=lambda p: p[0]) 
 
     def euclidean_distance(self, p1, p2):
         return ((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)**0.5
@@ -8,7 +8,7 @@ class Graph:
     def closest_pair_recursive(self, points_sorted_by_x, points_sorted_by_y):
         n = len(points_sorted_by_x)
         
-        # Caso base: Se tivermos 2 ou 3 pontos, resolvemos por força bruta
+        # Caso base
         if n <= 3:
             min_dist = float('inf')
             closest_pair = None

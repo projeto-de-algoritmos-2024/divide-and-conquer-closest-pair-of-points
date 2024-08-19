@@ -43,14 +43,11 @@ class Interface:
         return None
 
     def find_closest_pair(self):
-        # Converte os nós para uma lista de pontos
         points = [(node.pos[0], node.pos[1]) for node in nodes]
         
-        # Instancia a classe Graph e encontra o par mais próximo
         graph = Graph(points)
         closest_pair = graph.run()
         
-        # Destaca o par mais próximo na interface
         if closest_pair:
             p1, p2 = closest_pair
             for node in nodes:
@@ -71,7 +68,7 @@ class Interface:
                             nodes.append(new_node)
                         else:
                             self.dragging = True
-                    elif event.button == 3:  # Botão direito do mouse para encontrar o par mais próximo
+                    elif event.button == 3:
                         self.find_closest_pair()
                 elif event.type == pygame.MOUSEBUTTONUP:
                     if event.button == 1:
