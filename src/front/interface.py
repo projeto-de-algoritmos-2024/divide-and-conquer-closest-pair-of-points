@@ -2,7 +2,7 @@ import sys
 import pygame
 from src.front.colors import *
 from src.front.node import Node
-from src.back.graph import Graph  # Importa a classe Graph para encontrar o par mais próximo
+from src.back.graph import Graph
 
 pygame.init()
 
@@ -29,11 +29,6 @@ class Interface:
         screen.fill(BLACK)
         for node in nodes:
             node.draw(screen)
-
-    def critical_node(self, color, ids):
-        global nodes
-        for id in ids:
-            nodes[id-1].toggle_color(color)
 
     def find_clicked_node(self, pos):
         for node in nodes:

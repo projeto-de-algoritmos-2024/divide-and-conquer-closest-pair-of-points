@@ -20,7 +20,7 @@ class Graph:
                         closest_pair = (points_sorted_by_x[i], points_sorted_by_x[j])
             return closest_pair
 
-        # Divisão: Divide os pontos em duas metades
+        # Divisão
         mid = n // 2
         mid_point = points_sorted_by_x[mid]
 
@@ -30,17 +30,17 @@ class Graph:
         left_half_y = list(filter(lambda p: p[0] <= mid_point[0], points_sorted_by_y))
         right_half_y = list(filter(lambda p: p[0] > mid_point[0], points_sorted_by_y))
 
-        # Conquista: Resolve recursivamente para ambas as metades
+        # Conquista
         closest_pair_left = self.closest_pair_recursive(left_half_x, left_half_y)
         closest_pair_right = self.closest_pair_recursive(right_half_x, right_half_y)
 
-        # Combina: Determina a menor distância dos dois lados
+        # Combina
         d_left = self.euclidean_distance(*closest_pair_left)
         d_right = self.euclidean_distance(*closest_pair_right)
         d = min(d_left, d_right)
         closest_pair = closest_pair_left if d_left < d_right else closest_pair_right
 
-        # Verifica a faixa central (strip)
+        # Verifica a faixa central
         strip = [p for p in points_sorted_by_y if abs(p[0] - mid_point[0]) < d]
 
         for i in range(len(strip)):
